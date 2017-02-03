@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-var keystrokes = 5;
+var keystrokes = 15;
 
     $('.tweet-compose').on('click', function(){
         $(this).height(65);
@@ -13,11 +13,13 @@ var keystrokes = 5;
         var text = keystrokes-length;
         $('#char-count').text(text);
 
-        if (keystrokes <= 10) {
+        if (text <= 10) {
             $('#char-count').css('color', 'red')
+        } else {
+            $('#char-count').css('color', '#a9a9a9')
         }
 
-        if (keystrokes <= 0) {
+        if (text <= 0) {
             $('.button').attr('disabled', 'disabled');
         } 
     });
