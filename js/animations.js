@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
 var keystrokes = 15;
+var userInput;
 
     $('.tweet-compose').on('click', function(){
         $(this).height(65);
@@ -9,6 +10,7 @@ var keystrokes = 15;
     });
 
     $('.tweet-compose').keyup(function() {
+        userInput = $(this).val();
         var length = $(this).val().length;
         var text = keystrokes-length;
         $('#char-count').text(text);
@@ -26,6 +28,16 @@ var keystrokes = 15;
         }
     });
 
+    //pushes the text in the tweet field to the stream
+    $('.button').on('click', function(){
 
+        //clones the first tweet DIV and houses it in a variable
+        var cloneInfo = $('.tweet:first').clone();
+
+            
+
+        //Adds the cloned first Tweet to the stream
+        $('#stream').prepend(cloneInfo);
+    })
 });
 
