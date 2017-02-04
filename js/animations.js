@@ -65,6 +65,14 @@ var userInput;
             $('.tweet-actions').hide();
         }); 
 
+    //Hide the tweet stats on default
+    $('.stats').hide();
+
+    //Click on the Tweet to reveal the stats for it
+    $('.tweet').on('click', function(){
+        $(this).find('.stats').show();
+    })
+
 
 
 
