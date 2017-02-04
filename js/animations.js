@@ -20,8 +20,10 @@ var keystrokes = 15;
         }
 
         if (text <= 0) {
-            $('.button').attr('disabled', 'disabled');
-        } 
+            $('.button').prop('disabled', true);
+        } else {
+            $('.button').prop('disabled', false);
+        }
     });
 
 
