@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-var keystrokes = 15;
+var keystrokes = 140;
 var userInput;
 
     $('.tweet-compose').on('click', function(){
@@ -28,8 +28,10 @@ var userInput;
         }
     });
 
-    //pushes the text in the tweet field to the stream
+    //pushes the text in the tweet field to the stream and returns field to original state
     $('.button').on('click', function(){
+        $('.tweet-compose').val('') 
+        $('#char-count').text(140);
 
         //clones the first tweet DIV and houses it in a variable
         var cloneInfo = $('.tweet:first').clone();
@@ -50,5 +52,22 @@ var userInput;
         //Adds the cloned first Tweet to the stream
         $('#stream').prepend(cloneInfo);
     })
+
+    //Hide the tweet actions from the start
+    $('.tweet-actions').hide();
+
+    //Hover over the tweet to show the actions
+    $('.tweet').hover (
+        function() {
+            $(this).find('.tweet-actions').show();
+        },
+        function(){
+            $('.tweet-actions').hide();
+        }); 
+
+
+
+
+
 });
 
