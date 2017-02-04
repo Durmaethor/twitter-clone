@@ -34,7 +34,18 @@ var userInput;
         //clones the first tweet DIV and houses it in a variable
         var cloneInfo = $('.tweet:first').clone();
 
-            
+            //create a variable to house name info and pass into clone
+            var name = $('.content p:first').text();
+            cloneInfo.find('.fullname').text(name);
+            //replace username with name
+            cloneInfo.find('.username').text('@' + name.replace(/\s/g, ''));
+
+            //replace tweet text with userInput
+            cloneInfo.find('.tweet-text:first').text(userInput);
+
+            //replace avatar image with userimage
+            var imgSrc = $('.avatar:first').attr('src');
+            cloneInfo.find('.avatar').attr('src', imgSrc);
 
         //Adds the cloned first Tweet to the stream
         $('#stream').prepend(cloneInfo);
